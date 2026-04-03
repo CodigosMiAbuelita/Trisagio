@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trisagio Angélico</title>
+    
+    <link rel="apple-touch-icon" href="./Images/icon-192x192.png">
+    <meta name="theme-color" content="#007aff">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+            .then(registration => console.log('✅ SW registered: ', registration.scope))
+            .catch(err => console.error('❌ SW failed: ', err));
+        });
+    }
+    </script>
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>Trisagio Angélico</h1>
+        </header>
+
+        <div class="cover-container">
+            <img id="cover-image" src="./Images/trisagio.jpg" alt="Trisagio Angélico">
+        </div>
+
+        <div class="track-info">
+            <h2 id="track-title">Pista 1</h2>
+            <p id="sub-title">Santísima Trinidad</p>
+        </div>
+
+        <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" max="100" value="0">
+            <span id="duration-time">0:00</span>
+        </div>
+
+        <div class="controls">
+            <button id="prev-btn" class="control-btn secondary"><i class="fas fa-backward-step"></i></button>
+            <button id="play-btn" class="control-btn primary"><i class="fas fa-play"></i></button>
+            <button id="next-btn" class="control-btn secondary"><i class="fas fa-forward-step"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
